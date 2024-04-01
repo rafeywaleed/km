@@ -9,6 +9,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:km/Homepage/HomePage.dart';
+import 'package:km/IntroScreens/IntroScreens.dart';
 import 'package:provider/provider.dart';
 
 import 'Model_Authentication.dart';
@@ -24,6 +25,10 @@ class AuthenticationPage extends StatefulWidget {
 class _AuthenticationWidgetState extends State<AuthenticationPage>
     with TickerProviderStateMixin {
   late AuthenticationModel _model;
+
+  // TextEditingController fNameController = TextEditingController();
+  // TextEditingController emailController = TextEditingController();
+  // TextEditingController passwordController = TextEditingController();
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -782,7 +787,7 @@ class _AuthenticationWidgetState extends State<AuthenticationPage>
                                                             MaterialPageRoute(
                                                                 builder:
                                                                     (context) =>
-                                                                        HomePage()),
+                                                                        IntroScreens()),
                                                           );
                                                         },
                                                         text: 'Get Started',

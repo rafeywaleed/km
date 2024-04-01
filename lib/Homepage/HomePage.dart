@@ -3,6 +3,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:km/themes/kmTheme.dart';
 import 'package:provider/provider.dart';
 import 'package:flutterflow_ui/flutterflow_ui.dart';
 import 'Model_HomePage.dart';
@@ -17,6 +18,16 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   late HomePageModel _model;
+
+  // ThemeData _currentTheme = LightModeTheme() as ThemeData;
+
+  // void _toggleTheme() {
+  //   setState(() {
+  //     _currentTheme = (_currentTheme == LightModeTheme()
+  //         ? DarkModeTheme()
+  //         : LightModeTheme()) as ThemeData;
+  //   });
+  // }
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -295,95 +306,109 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         ),
                       ),
                       Align(
-                          alignment: AlignmentDirectional(-1, 0),
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Container(
-                              width: 87,
-                              height: 50,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context).lineColor,
-                                boxShadow: [
-                                  BoxShadow(
-                                    blurRadius: 8,
-                                    color: Colors.black,
-                                    offset: Offset(
-                                      2,
-                                      3,
-                                    ),
-                                    spreadRadius: 1,
-                                  )
-                                ],
-                                borderRadius: BorderRadius.circular(24),
-                                border: Border.all(
-                                  color: FlutterFlowTheme.of(context).accent1,
-                                  width: 4,
-                                ),
-                              ),
-                              child: Padding(
-                                padding: EdgeInsets.all(2),
-                                child: Stack(
-                                  alignment: AlignmentDirectional(0, 0),
-                                  children: [
-                                    if (Theme.of(context).brightness ==
-                                        Brightness.light)
-                                      Align(
-                                        alignment:
-                                            AlignmentDirectional(-0.74, -0.2),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 6, 0),
-                                          child: InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              ThemeMode.dark;
-                                            },
-                                            child: Icon(
-                                              Icons.nights_stay,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
-                                              size: 30,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    if (Theme.of(context).brightness ==
-                                        Brightness.dark)
-                                      Align(
-                                        alignment:
-                                            AlignmentDirectional(0.79, 0.25),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  6, 0, 0, 0),
-                                          child: InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              ThemeMode.light;
-                                            },
-                                            child: Icon(
-                                              Icons.wb_sunny_rounded,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
-                                              size: 30,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                  ],
-                                ),
+                        alignment: AlignmentDirectional(-1, 0),
+                        child: Padding(
+                          padding: EdgeInsets.all(8),
+                          child: Container(
+                            width: 87,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context).lineColor,
+                              boxShadow: [
+                                BoxShadow(
+                                  blurRadius: 8,
+                                  color: Colors.black,
+                                  offset: Offset(
+                                    2,
+                                    3,
+                                  ),
+                                  spreadRadius: 1,
+                                )
+                              ],
+                              borderRadius: BorderRadius.circular(24),
+                              border: Border.all(
+                                color: FlutterFlowTheme.of(context).accent1,
+                                width: 4,
                               ),
                             ),
-                          ))
+                            child: Padding(
+                              padding: EdgeInsets.all(2),
+                              child: Stack(
+                                alignment: AlignmentDirectional(0, 0),
+                                children: [
+                                  if (Theme.of(context).brightness ==
+                                      Brightness.light)
+                                    Align(
+                                      alignment:
+                                          AlignmentDirectional(-0.74, -0.2),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 0, 6, 0),
+                                        child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            Provider.of<ThemeProvider>(context,
+                                                    listen: false)
+                                                .toggleTheme();
+                                            ;
+                                          },
+                                          child: Icon(
+                                            Icons.nights_stay,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                            size: 30,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  if (Theme.of(context).brightness ==
+                                      Brightness.dark)
+                                    Align(
+                                      alignment:
+                                          AlignmentDirectional(0.70, 0.25),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            5, 0, 0, 0),
+                                        child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            Provider.of<ThemeProvider>(context,
+                                                    listen: false)
+                                                .toggleTheme();
+                                          },
+                                          child: Icon(
+                                            Icons.wb_sunny_rounded,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                            size: 30,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      // ElevatedButton(
+                      //   onPressed: () {
+                      //     Provider.of<ThemeProvider>(context, listen: false)
+                      //         .toggleTheme();
+                      //   },
+                      //   child: Text('Toggle Theme'),
+                      // )
+                      // ElevatedButton(
+                      //   onPressed: _toggleTheme,
+                      //   child: Text('Toggle Theme'),
+                      // ),
+
                       // Padding(
                       //   padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                       //   child: Container(

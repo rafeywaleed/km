@@ -81,56 +81,56 @@ class AuthenticationModel extends FlutterFlowModel<AuthenticationPage> {
     passwordController2?.dispose();
   }
 
-  /// FireBase part
+  // /// FireBase part
 
-  // Signing up
-  void createAccount() async {
-    String sFullName = fullNameController.text.trim();
-    String sEmail = emailAddressController1.text.trim();
-    String sPassword = passwordController1.text.trim();
+  // // Signing up
+  // void createAccount() async {
+  //   String sFullName = fullNameController.text.trim();
+  //   String sEmail = emailAddressController1.text.trim();
+  //   String sPassword = passwordController1.text.trim();
 
-    if (sEmail == "" || sPassword == "" || sFullName == "") {
-      log("Fill all the details");
-    } else {
-      try {
-        UserCredential userCredential = await FirebaseAuth.instance
-            .createUserWithEmailAndPassword(email: sEmail, password: sPassword);
+  //   if (sEmail == "" || sPassword == "" || sFullName == "") {
+  //     log("Fill all the details");
+  //   } else {
+  //     try {
+  //       UserCredential userCredential = await FirebaseAuth.instance
+  //           .createUserWithEmailAndPassword(email: sEmail, password: sPassword);
 
-        if (userCredential.user != null) {
-          Navigator.push(
-            context as BuildContext,
-            MaterialPageRoute(builder: (context) => IntroScreens()),
-          );
-        }
-      } on FirebaseAuthException catch (ex) {
-        log(ex.code.toString());
-      }
-    }
-  }
+  //       if (userCredential.user != null) {
+  //         Navigator.push(
+  //           context as BuildContext,
+  //           MaterialPageRoute(builder: (context) => IntroScreens()),
+  //         );
+  //       }
+  //     } on FirebaseAuthException catch (ex) {
+  //       log(ex.code.toString());
+  //     }
+  //   }
+  // }
 
-  // Log in
+  // // Log in
 
-  void login() async {
-    String lEmail = emailAddressController2.text.trim();
-    String lPassword = passwordController2.text.trim();
+  // void login() async {
+  //   String lEmail = emailAddressController2.text.trim();
+  //   String lPassword = passwordController2.text.trim();
 
-    if (lEmail == "" || lPassword == "") {
-      log("Fill all the details");
-    } else {
-      try {
-        UserCredential userCredential = await FirebaseAuth.instance
-            .signInWithEmailAndPassword(email: lEmail, password: lPassword);
+  //   if (lEmail == "" || lPassword == "") {
+  //     log("Fill all the details");
+  //   } else {
+  //     try {
+  //       UserCredential userCredential = await FirebaseAuth.instance
+  //           .signInWithEmailAndPassword(email: lEmail, password: lPassword);
 
-        if (userCredential != null) {
-          Navigator.popUntil(context as BuildContext, (route) => route.isFirst);
-          Navigator.pushReplacement(
-            context as BuildContext,
-            MaterialPageRoute(builder: (context) => HomePage()),
-          );
-        }
-      } on FirebaseAuthException catch (ex) {
-        log(ex.code.toString());
-      }
-    }
-  }
+  //       if (userCredential != null) {
+  //         Navigator.popUntil(context as BuildContext, (route) => route.isFirst);
+  //         Navigator.pushReplacement(
+  //           context as BuildContext,
+  //           MaterialPageRoute(builder: (context) => HomePage()),
+  //         );
+  //       }
+  //     } on FirebaseAuthException catch (ex) {
+  //       log(ex.code.toString());
+  //     }
+  //   }
+  // }
 }

@@ -26,10 +26,6 @@ class _AuthenticationWidgetState extends State<AuthenticationPage>
     with TickerProviderStateMixin {
   late AuthenticationModel _model;
 
-  // TextEditingController fNameController = TextEditingController();
-  // TextEditingController emailController = TextEditingController();
-  // TextEditingController passwordController = TextEditingController();
-
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   final animationsMap = {

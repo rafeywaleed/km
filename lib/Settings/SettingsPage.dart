@@ -1,7 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutterflow_ui/flutterflow_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:km/Auth/Authentication.dart';
 import 'package:provider/provider.dart';
 
 import 'Model_Settings.dart';
@@ -333,7 +335,7 @@ class _SettingsPageState extends State<SettingsPage> {
             padding: EdgeInsetsDirectional.fromSTEB(16, 12, 0, 0),
             child: FFButtonWidget(
               onPressed: () {
-                print('Button pressed ...');
+                logout();
               },
               text: 'Log Out',
               options: FFButtonOptions(
@@ -358,5 +360,15 @@ class _SettingsPageState extends State<SettingsPage> {
         ].addToEnd(SizedBox(height: 64)),
       ),
     );
+  }
+
+  // FireBase
+  // Logout
+
+  void logout() async {
+    await FirebaseAuth.instance.signOut();
+    Navigator.popUntil(context as BuildContext, (route) => route.isFirst);
+    Navigator.pushReplacement(context as BuildContext,
+        MaterialPageRoute(builder: (context) => AuthenticationPage()));
   }
 }

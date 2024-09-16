@@ -3,6 +3,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:km/themes/kmTheme.dart';
 import 'package:provider/provider.dart';
 import 'package:flutterflow_ui/flutterflow_ui.dart';
 import 'Model_HomePage.dart';
@@ -17,6 +18,16 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   late HomePageModel _model;
+
+  // ThemeData _currentTheme = LightModeTheme() as ThemeData;
+
+  // void _toggleTheme() {
+  //   setState(() {
+  //     _currentTheme = (_currentTheme == LightModeTheme()
+  //         ? DarkModeTheme()
+  //         : LightModeTheme()) as ThemeData;
+  //   });
+  // }
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -294,166 +305,270 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
-                        child: Container(
-                          width: 250,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            color: Color(0xD557636C),
-                            borderRadius: BorderRadius.circular(12),
-                            border: Border.all(
-                              color: Color(0xD557636C),
-                              width: 1,
-                            ),
-                          ),
-                          child: Padding(
-                            padding: EdgeInsets.all(4),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Expanded(
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () {},
-                                    // onTap: () async {
-                                    //   setDarkModeSetting(
-                                    //       context, ThemeMode.light);
-                                    // },
-                                    // ***********HAD TO BE SET AFTER CREATING THEME COLORS FILE******
-                                    child: Container(
-                                      width: 115,
-                                      height: 100,
-                                      decoration: BoxDecoration(
-                                        color: Theme.of(context).brightness ==
-                                                Brightness.light
-                                            ? Colors.white
-                                            : Color(0xD557636C),
-                                        borderRadius: BorderRadius.circular(10),
-                                        border: Border.all(
-                                          color: Color(0xD557636C),
-                                          width: 1,
-                                        ),
-                                      ),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            Icons.wb_sunny_rounded,
-                                            color:
-                                                Theme.of(context).brightness ==
-                                                        Brightness.light
-                                                    ? Color(0xFF14181B)
-                                                    : Color(0xFF57636C),
-                                            size: 16,
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    4, 0, 0, 0),
-                                            child: Text(
-                                              'Light Mode',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Outfit',
-                                                        color: Theme.of(context)
-                                                                    .brightness ==
-                                                                Brightness.light
-                                                            ? Color(0xFF14181B)
-                                                            : Color(0xFF57636C),
-                                                        fontSize: 14,
-                                                        letterSpacing: 0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
+                      Align(
+                        alignment: AlignmentDirectional(-1, 0),
+                        child: Padding(
+                          padding: EdgeInsets.all(8),
+                          child: Container(
+                            width: 87,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context).lineColor,
+                              boxShadow: [
+                                BoxShadow(
+                                  blurRadius: 8,
+                                  color: Colors.black,
+                                  offset: Offset(
+                                    2,
+                                    3,
                                   ),
-                                ),
-                                Expanded(
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () {},
-                                    // onTap: () async {
-                                    //   setDarkModeSetting(
-                                    //       context, ThemeMode.dark);
-                                    // },
-                                    // ***********HAD TO BE SET AFTER CREATING THEME COLORS FILE******
-                                    child: Container(
-                                      width: 115,
-                                      height: 100,
-                                      decoration: BoxDecoration(
-                                        color: Theme.of(context).brightness ==
-                                                Brightness.dark
-                                            ? Colors.white
-                                            : Color(0xD557636C),
-                                        borderRadius: BorderRadius.circular(10),
-                                        border: Border.all(
-                                          color: Color(0xD557636C),
-                                          width: 1,
-                                        ),
-                                      ),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            Icons.nightlight_round,
-                                            color:
-                                                Theme.of(context).brightness ==
-                                                        Brightness.dark
-                                                    ? Color(0xFF14181B)
-                                                    : Color(0xFF57636C),
-                                            size: 16,
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    4, 0, 0, 0),
-                                            child: Text(
-                                              'Dark Mode',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Outfit',
-                                                        color: Theme.of(context)
-                                                                    .brightness ==
-                                                                Brightness.dark
-                                                            ? Color(0xFF14181B)
-                                                            : Color(0xFF57636C),
-                                                        fontSize: 14,
-                                                        letterSpacing: 0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
+                                  spreadRadius: 1,
+                                )
                               ],
+                              borderRadius: BorderRadius.circular(24),
+                              border: Border.all(
+                                color: FlutterFlowTheme.of(context).accent1,
+                                width: 4,
+                              ),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.all(2),
+                              child: Stack(
+                                alignment: AlignmentDirectional(0, 0),
+                                children: [
+                                  if (Theme.of(context).brightness ==
+                                      Brightness.light)
+                                    Align(
+                                      alignment:
+                                          AlignmentDirectional(-0.74, -0.2),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 0, 6, 0),
+                                        child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            Provider.of<ThemeProvider>(context,
+                                                    listen: false)
+                                                .toggleTheme();
+                                            ;
+                                          },
+                                          child: Icon(
+                                            Icons.nights_stay,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                            size: 30,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  if (Theme.of(context).brightness ==
+                                      Brightness.dark)
+                                    Align(
+                                      alignment:
+                                          AlignmentDirectional(0.70, 0.25),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            5, 0, 0, 0),
+                                        child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            Provider.of<ThemeProvider>(context,
+                                                    listen: false)
+                                                .toggleTheme();
+                                          },
+                                          child: Icon(
+                                            Icons.wb_sunny_rounded,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                            size: 30,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
                       ),
+                      // ElevatedButton(
+                      //   onPressed: () {
+                      //     Provider.of<ThemeProvider>(context, listen: false)
+                      //         .toggleTheme();
+                      //   },
+                      //   child: Text('Toggle Theme'),
+                      // )
+                      // ElevatedButton(
+                      //   onPressed: _toggleTheme,
+                      //   child: Text('Toggle Theme'),
+                      // ),
+
+                      // Padding(
+                      //   padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                      //   child: Container(
+                      //     width: 250,
+                      //     height: 50,
+                      //     decoration: BoxDecoration(
+                      //       color: Color(0xD557636C),
+                      //       borderRadius: BorderRadius.circular(12),
+                      //       border: Border.all(
+                      //         color: Color(0xD557636C),
+                      //         width: 1,
+                      //       ),
+                      //     ),
+                      //     child: Padding(
+                      //       padding: EdgeInsets.all(4),
+                      //       child: Row(
+                      //         mainAxisSize: MainAxisSize.max,
+                      //         mainAxisAlignment: MainAxisAlignment.start,
+                      //         children: [
+                      //           Expanded(
+                      //             child: InkWell(
+                      //               splashColor: Colors.transparent,
+                      //               focusColor: Colors.transparent,
+                      //               hoverColor: Colors.transparent,
+                      //               highlightColor: Colors.transparent,
+                      //               onTap: () {},
+                      //               // onTap: () async {
+                      //               //   setDarkModeSetting(
+                      //               //       context, ThemeMode.light);
+                      //               // },
+                      //               // ***********HAD TO BE SET AFTER CREATING THEME COLORS FILE******
+                      //               child: Container(
+                      //                 width: 115,
+                      //                 height: 100,
+                      //                 decoration: BoxDecoration(
+                      //                   color: Theme.of(context).brightness ==
+                      //                           Brightness.light
+                      //                       ? Colors.white
+                      //                       : Color(0xD557636C),
+                      //                   borderRadius: BorderRadius.circular(10),
+                      //                   border: Border.all(
+                      //                     color: Color(0xD557636C),
+                      //                     width: 1,
+                      //                   ),
+                      //                 ),
+                      //                 child: Row(
+                      //                   mainAxisSize: MainAxisSize.max,
+                      //                   mainAxisAlignment:
+                      //                       MainAxisAlignment.center,
+                      //                   children: [
+                      //                     Icon(
+                      //                       Icons.wb_sunny_rounded,
+                      //                       color:
+                      //                           Theme.of(context).brightness ==
+                      //                                   Brightness.light
+                      //                               ? Color(0xFF14181B)
+                      //                               : Color(0xFF57636C),
+                      //                       size: 16,
+                      //                     ),
+                      //                     Padding(
+                      //                       padding:
+                      //                           EdgeInsetsDirectional.fromSTEB(
+                      //                               4, 0, 0, 0),
+                      //                       child: Text(
+                      //                         'Light Mode',
+                      //                         style:
+                      //                             FlutterFlowTheme.of(context)
+                      //                                 .bodyMedium
+                      //                                 .override(
+                      //                                   fontFamily: 'Outfit',
+                      //                                   color: Theme.of(context)
+                      //                                               .brightness ==
+                      //                                           Brightness.light
+                      //                                       ? Color(0xFF14181B)
+                      //                                       : Color(0xFF57636C),
+                      //                                   fontSize: 14,
+                      //                                   letterSpacing: 0,
+                      //                                   fontWeight:
+                      //                                       FontWeight.w500,
+                      //                                 ),
+                      //                       ),
+                      //                     ),
+                      //                   ],
+                      //                 ),
+                      //               ),
+                      //             ),
+                      //           ),
+                      //           Expanded(
+                      //             child: InkWell(
+                      //               splashColor: Colors.transparent,
+                      //               focusColor: Colors.transparent,
+                      //               hoverColor: Colors.transparent,
+                      //               highlightColor: Colors.transparent,
+                      //               onTap: () {},
+                      //               // onTap: () async {
+                      //               //   setDarkModeSetting(
+                      //               //       context, ThemeMode.dark);
+                      //               // },
+                      //               // ***********HAD TO BE SET AFTER CREATING THEME COLORS FILE******
+                      //               child: Container(
+                      //                 width: 115,
+                      //                 height: 100,
+                      //                 decoration: BoxDecoration(
+                      //                   color: Theme.of(context).brightness ==
+                      //                           Brightness.dark
+                      //                       ? Colors.white
+                      //                       : Color(0xD557636C),
+                      //                   borderRadius: BorderRadius.circular(10),
+                      //                   border: Border.all(
+                      //                     color: Color(0xD557636C),
+                      //                     width: 1,
+                      //                   ),
+                      //                 ),
+                      //                 child: Row(
+                      //                   mainAxisSize: MainAxisSize.max,
+                      //                   mainAxisAlignment:
+                      //                       MainAxisAlignment.center,
+                      //                   children: [
+                      //                     Icon(
+                      //                       Icons.nightlight_round,
+                      //                       color:
+                      //                           Theme.of(context).brightness ==
+                      //                                   Brightness.dark
+                      //                               ? Color(0xFF14181B)
+                      //                               : Color(0xFF57636C),
+                      //                       size: 16,
+                      //                     ),
+                      //                     Padding(
+                      //                       padding:
+                      //                           EdgeInsetsDirectional.fromSTEB(
+                      //                               4, 0, 0, 0),
+                      //                       child: Text(
+                      //                         'Dark Mode',
+                      //                         style:
+                      //                             FlutterFlowTheme.of(context)
+                      //                                 .bodyMedium
+                      //                                 .override(
+                      //                                   fontFamily: 'Outfit',
+                      //                                   color: Theme.of(context)
+                      //                                               .brightness ==
+                      //                                           Brightness.dark
+                      //                                       ? Color(0xFF14181B)
+                      //                                       : Color(0xFF57636C),
+                      //                                   fontSize: 14,
+                      //                                   letterSpacing: 0,
+                      //                                   fontWeight:
+                      //                                       FontWeight.w500,
+                      //                                 ),
+                      //                       ),
+                      //                     ),
+                      //                   ],
+                      //                 ),
+                      //               ),
+                      //             ),
+                      //           ),
+                      //         ],
+                      //       ),
+                      //     ),
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),

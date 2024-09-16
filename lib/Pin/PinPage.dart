@@ -532,35 +532,39 @@ class _PinPageState extends State<PinPage> with TickerProviderStateMixin {
                                               ),
                                             ),
                                           ),
-                                          DropdownButton<String>(
-                                            value: _model.dropDownValue,
-                                            onChanged: (String? newValue) {
-                                              setState(() {
-                                                _model.dropDownValue =
-                                                    newValue!;
-                                              });
-                                            },
-                                            items: <String>[
-                                              'Default (3 hrs)',
-                                              '1 hr',
-                                              '5 hr',
-                                              '10 hr',
-                                              '24 hr'
-                                            ].map<DropdownMenuItem<String>>(
-                                                (String value) {
-                                              return DropdownMenuItem<String>(
-                                                value: value,
-                                                child: Text(value),
-                                              );
-                                            }).toList(),
-                                            // style: FlutterFlowTheme.of(context).typography.bodyText1,
-                                            hint: Text('Default (3 hrs)'),
-                                            icon: Icon(
-                                              Icons.keyboard_arrow_down_rounded,
-                                              // color: FlutterFlowTheme.of(context).colorScheme.secondary,
-                                              size: 24,
+                                          Padding(
+                                            padding: const EdgeInsets.all(25.0),
+                                            child: DropdownButton<String>(
+                                              value: _model.dropDownValue,
+                                              onChanged: (String? newValue) {
+                                                setState(() {
+                                                  _model.dropDownValue =
+                                                      newValue!;
+                                                });
+                                              },
+                                              items: <String>[
+                                                'Default (3 hrs)',
+                                                '1 hr',
+                                                '5 hr',
+                                                '10 hr',
+                                                '24 hr'
+                                              ].map<DropdownMenuItem<String>>(
+                                                  (String value) {
+                                                return DropdownMenuItem<String>(
+                                                  value: value,
+                                                  child: Text(value),
+                                                );
+                                              }).toList(),
+                                              // style: FlutterFlowTheme.of(context).typography.bodyText1,
+                                              hint: Text('Default (3 hrs)'),
+                                              icon: Icon(
+                                                Icons
+                                                    .keyboard_arrow_down_rounded,
+                                                // color: FlutterFlowTheme.of(context).colorScheme.secondary,
+                                                size: 24,
+                                              ),
+                                              isExpanded: true,
                                             ),
-                                            isExpanded: true,
                                           ),
                                           // FlutterFlowDropDown<String>(
                                           //   controller: _model
